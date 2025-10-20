@@ -1,0 +1,89 @@
+﻿<UserControl x:Class="TTNAppCore.UI.View.TtnDetailView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TTNAppCore.UI.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="800">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <!--счет с 0-->
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <!--20-->
+            <RowDefinition /> 
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="ТТН №"/>
+        <TextBox Grid.Row="1" Text="{Binding Ttn.Num, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Content="Дата составления" Grid.Row="2"/>
+        <DatePicker Grid.Row="3" Text="{Binding Ttn.Date, Mode=TwoWay, 
+            UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Content="Количество" Grid.Row="4"/>
+        <TextBox Grid.Row="5" Text="{Binding Ttn.Amount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Content="Наименование продукции, товара (груза), ТУ, марка, размер, сорт" Grid.Row="6"/>
+        <TextBox Grid.Row="7" Text="{Binding Ttn.ProductName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Content="Организация" Grid.Row="8"/>
+        <TextBox Grid.Row="9" Text="{Binding Ttn.Organization, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Content="Автомобиль" Grid.Row="10"/>
+        <TextBox Grid.Row="11" Text="{Binding Ttn.Car, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Content="Государственный №" Grid.Row="12"/>
+        <TextBox Grid.Row="13" Text="{Binding Ttn.CarNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Content="Водитель" Grid.Row="14"/>
+        <ComboBox Grid.Row="15" ItemsSource="{Binding Drivers}"
+                  DisplayMemberPath="DisplayMember" 
+                  SelectedValuePath="Id"
+                  SelectedValue="{Binding Ttn.DriverId, Mode=TwoWay}"/>
+
+        <!--<Label Content="Удостоверение №" Grid.Row="16"/>
+        <TextBox Grid.Row="17" Text="{Binding Ttn.DrivingLicense, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>-->
+
+        <Label Content="Пункт погрузки" Grid.Row="18"/>
+        <TextBox Grid.Row="19" Text="{Binding Ttn.LoadingPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+
+        <StackPanel Grid.Row="21" Orientation="Horizontal">
+            <Button Content="Сохранить" Width="150" Margin="10"
+                    Command="{Binding SaveCommand}">
+            </Button>
+            <Button Content="Удалить" Width="150" Margin="10"
+                    Command="{Binding DeleteCommand}">
+            </Button>
+            <Button Content="Печать" Width="150" Margin="10"
+                    Command="{Binding PrintCommand}">
+            </Button>
+
+        </StackPanel>
+
+    </Grid>
+
+
+</UserControl>
